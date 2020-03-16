@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "63660984323",
+    "firebase_url": "https://react-native-tutorial-6aef4.firebaseio.com",
+    "project_id": "react-native-tutorial-6aef4",
+    "storage_bucket": "react-native-tutorial-6aef4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:63660984323:android:1cb420cc499f4db0aea636",
+        "android_client_info": {
+          "package_name": "com.flurryproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "63660984323-0eqlk04c7ojvu12na0anl7ojcopgn9oq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFdL2JLqUjegNrXrESvHJ6ZfigOaAKHtw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "63660984323-0eqlk04c7ojvu12na0anl7ojcopgn9oq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
