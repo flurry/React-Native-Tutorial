@@ -8,6 +8,7 @@ import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.flurry.android.marketing.FlurryMarketingOptions;
 import com.flurry.android.reactnative.FlurryModule;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -47,10 +48,19 @@ public class MainApplication extends Application implements ReactApplication {
     SoLoader.init(this, /* native exopackage */ false);
 //    initializeFlipper(this); // Remove this line if you don't want Flipper enabled
 
+      FlurryMarketingOptions messagingOptions = new FlurryMarketingOptions.Builder()
+              .setupMessagingWithAutoIntegration()
+              .withDefaultNotificationIconResourceId(R.mipmap.ic_launcher_round)
+              // Define yours if needed
+              // .withDefaultNotificationChannelId(NOTIFICATION_CHANNEL_ID)
+              // .withDefaultNotificationIconAccentColor(getResources().getColor(R.color.colorPrimary))
+              // .withFlurryMessagingListener(messagingListener)
+              .build();
+
     new FlurryModule.Builder()
               .withLogEnabled(true)
               .withLogLevel(Log.VERBOSE)
-              .withMessaging(true)
+              .withMessaging(true, messagingOptions)
               .build(this, "2C75ZBJDTGZSMNKXDQGB");    
   }
 

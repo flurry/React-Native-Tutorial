@@ -183,6 +183,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
+    implementation 'com.flurry.android:marketing:12.5.0'
     implementation 'com.google.firebase:firebase-messaging:20.1.0'
 
     //implementation 'com.google.firebase:firebase-core:16.0.3'

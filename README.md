@@ -2,11 +2,12 @@
 
 - [Install React Native](#install-react-native)
 - [Create React Native Flurry Project](#create-react-native-flurry-project)
-  - [Run React Native Flurry Project](#run-react-native-flurry-project)
+    - [Run React Native Flurry Project](#run-react-native-flurry-project)
 - [Integrate Flurry Config in React Native Project](#integrate-flurry-config-in-react-native-project)
 - [Integrate Flurry Push in React Native Project](#integrate-flurry-push-in-react-native-project)
-  - [Android Flurry Push](#android-flurry-push)
-  - [iOS Flurry Push](#ios-flurry-push)
+    - [Android Flurry Push](#android-flurry-push)
+        - [User's Native Flurry Push Options or Listener](#users-native-flurry-push-options-or-listener)
+    - [iOS Flurry Push](#ios-flurry-push)
 - [Support](#support)
 - [License](#license)
 
@@ -230,6 +231,41 @@ In order to use Flurry Push in React Native projects for [Android](https://devel
 4. Test Flurry Push by [sending test pushes](https://developer.yahoo.com/flurry/docs/push/testpush/send/). To send a test push, visit the Marketing tab. Select the app you want to test and then click the "+ Create Push Campaign" button. Follow the steps to set up the campaign until you get to the final step labeled “Review your campaign.”
 
    ![image alt text](docs/TestPush.png)
+
+### User's Native Flurry Push Options or Listener
+When you initialize Flurry Push, you can specify your own `FlurryMarketingOptions` or `FlurryMessagingListener`. Please follow the steps to set your options (similar steps for your listener).
+
+1. Add the following dependency in your android's `build.gradle`:
+
+    ```groovy
+    implementation 'com.flurry.android:marketing:#.#.#'
+    ```
+
+2. Import `FlurryMarketingOptions` in your `MainApplication`:
+
+    ```java
+    import com.flurry.android.marketing.FlurryMarketingOptions;
+    ```
+
+3. Define your `FlurryMarketingOptions` with your options:
+
+    ```java
+    FlurryMarketingOptions messagingOptions = new FlurryMarketingOptions.Builder()
+        .setupMessagingWithAutoIntegration()
+        .withDefaultNotificationIconResourceId(R.mipmap.ic_launcher_round)
+        .withDefaultNotificationIconAccentColor(getResources().getColor(R.color.colorPrimary))
+        .withFlurryMessagingListener(messagingListener)
+        .build();
+    ```
+
+4. Finally enable Flurry Push with your options:
+
+    ```java
+    new FlurryModule.Builder()
+        .withLogEnabled(true)
+        .withMessaging(true, messagingOptions)
+        .build(this, FLURRY_ANDROID_API_KEY);
+    ```
 
 ## iOS Flurry Push
 
